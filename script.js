@@ -3,6 +3,9 @@ const saveLessonBtn = document.getElementById("save-lesson");
 const lessonTitle = document.getElementById("lesson-title");
 const ageGroup = document.getElementById("age-group");
 const bibleVerse = document.getElementById("bible-verse");
+const lessonSummary= document.getElementById("lesson-summary");
+const activities = document.getElementById("activities");
+const prayer = document.getElementById("prayer");
 
 saveLessonBtn.addEventListener("click", function() {
     console.log(lessonTitle.value);
@@ -11,7 +14,10 @@ saveLessonBtn.addEventListener("click", function() {
    const lesson = {
     title: lessonTitle.value,
     ageGroup: ageGroup.value,
-    bibleVerse: bibleVerse.value
+    bibleVerse: bibleVerse.value,
+    summary: lessonSummary.value,
+    activities: activities.value,
+    prayer: prayer.value
 };
     console.log(lesson);
     localStorage.setItem("lesson", JSON.stringify(lesson));
@@ -25,6 +31,9 @@ if (savedLesson) {
     lessonTitle.value = lesson.title;
     ageGroup.value = lesson.ageGroup;
     bibleVerse.value = lesson.bibleVerse;
+    lessonSummary.value=lesson.summary;
+    activities.value=lesson.activities;
+    prayer.value=lesson.prayer;
     
     console.log(lesson);
 }
