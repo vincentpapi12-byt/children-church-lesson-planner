@@ -21,6 +21,11 @@ const savedLesson = localStorage.getItem("lesson");
 
 if (savedLesson) {
     const lesson = JSON.parse(savedLesson);
+
+    lessonTitle.value = lesson.title;
+    ageGroup.value = lesson.ageGroup;
+    bibleVerse.value = lesson.bibleVerse;
+    
     console.log(lesson);
 }
 
