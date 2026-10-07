@@ -14,4 +14,5 @@ saveLessonBtn.addEventListener("click", function() {
     bibleVerse: bibleVerse.value
 };
     console.log(lesson);
+    localStorage.setItem("lesson", JSON.stringify(lesson));
 });
