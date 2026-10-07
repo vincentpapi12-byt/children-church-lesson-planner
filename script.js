@@ -1,5 +1,8 @@
 
 const savedLessons = localStorage.getItem("lessons");
+const lessons = savedLessons ? JSON.parse(savedLessons) : [];
+
+
 const lessonList = document.getElementById("lesson-list");
 
 lessons.forEach(function(lesson) {
@@ -9,7 +12,7 @@ lessons.forEach(function(lesson) {
    lessonList.appendChild(lessonElement);
 });
 
-const lessons = savedLessons ? JSON.parse(savedLessons) : [];
+
 const saveLessonBtn = document.getElementById("save-lesson");
 
 const lessonTitle = document.getElementById("lesson-title");
