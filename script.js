@@ -16,7 +16,7 @@ saveLessonBtn.addEventListener("click", function() {
     console.log(lesson);
     localStorage.setItem("lesson", JSON.stringify(lesson));
 });
-console.log("script.js is running");
+
 const savedLesson = localStorage.getItem("lesson");
 
 if (savedLesson) {
