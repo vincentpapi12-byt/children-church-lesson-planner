@@ -17,7 +17,7 @@ h1 {
     
 }
 h2 {
-    color: gold;
+    color: #C9A227;
 }
 input,
 textarea {
@@ -27,7 +27,7 @@ textarea {
     box-sizing: border-box;
 }
 #save-lesson {
-    background-color: gold;
+    background-color: #C9A227;
     color:darkblue;
     padding:10px 20px;
     border:none;
@@ -37,7 +37,7 @@ textarea {
 }
 #save-lesson:hover {
   background-color: darkblue;
-  color: gold;
+  color: #C9A227;
 }
 #submmited {
     color:darkblue;
