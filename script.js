@@ -1,5 +1,17 @@
 const saveLessonBtn = document.getElementById("save-lesson");
 
+const lessonTitle = document.getElementById("lesson-title");
+const ageGroup = document.getElementById("age-group");
+const bibleVerse = document.getElementById("bible-verse");
+
 saveLessonBtn.addEventListener("click", function() {
-    console.log("Save button clicked!");
+    console.log(lessonTitle.value);
+    console.log(ageGroup.value);
+    console.log(bibleVerse.value);
+   const lesson = {
+    title: lessonTitle.value,
+    ageGroup: ageGroup.value,
+    bibleVerse: bibleVerse.value
+};
+    console.log(lesson);
 });
