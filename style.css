@@ -12,7 +12,8 @@ h1 {
 .lesson-content {
     background-color: white;
     padding: 20px;
-    margin: 20px 0;
+    max-width: 800px;
+    margin: 20px auto;
     border: 2px solid darkblue;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -49,4 +50,9 @@ textarea {
     display: block;
     margin-top: 10px;
     font-weight: bold;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
 }
