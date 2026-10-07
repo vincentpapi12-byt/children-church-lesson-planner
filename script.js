@@ -1,3 +1,6 @@
+
+const savedLessons = localStorage.getItem("lessons");
+const lessons = savedLessons ? JSON.parse(savedLessons) : [];
 const saveLessonBtn = document.getElementById("save-lesson");
 
 const lessonTitle = document.getElementById("lesson-title");
@@ -36,7 +39,8 @@ if (savedLesson) {
     lessonSummary.value=lesson.summary;
     activities.value=lesson.activities;
     prayer.value=lesson.prayer;
-    
-    console.log(lesson);
 }
+lessons.push(lesson);
+localStorage.setItem("lessons", JSON.stringify(lessons));
 
+console.log(lessons);
