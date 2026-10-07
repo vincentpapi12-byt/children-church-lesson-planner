@@ -24,7 +24,26 @@ const prayer = document.getElementById("prayer");
 const submittedMessage=document.getElementById("submmited");
 
 saveLessonBtn.addEventListener("click", function() {
-console.log("BUTTON CLICKED");
+ console.log(lessonTitle.value);
+    console.log(ageGroup.value);
+    console.log(bibleVerse.value);
+
+    const lesson = {
+        title: lessonTitle.value,
+        ageGroup: ageGroup.value,
+        bibleVerse: bibleVerse.value,
+        summary: lessonSummary.value,
+        activities: activities.value,
+        prayer: prayer.value
+    };
+
+    lessons.push(lesson);
+
+    localStorage.setItem("lessons", JSON.stringify(lessons));
+
+    console.log(lessons);
+
+    localStorage.setItem("lesson", JSON.stringify(lesson));
 
     submittedMessage.textContent = "Lesson saved successfully!";
    
