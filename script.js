@@ -38,8 +38,9 @@ saveLessonBtn.addEventListener("click", function() {
     lessons.push(lesson);
     localStorage.setItem("lessons", JSON.stringify(lessons));
     console.log(lessons);
-    localStorage.setItem("lesson", JSON.stringify(lesson));
     submittedMessage.textContent = "Lesson saved successfully!";
+    console.log("MESSAGE SHOULD SHOW");
+   
 });
 
 const savedLesson = localStorage.getItem("lesson");
