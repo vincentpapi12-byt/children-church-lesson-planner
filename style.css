@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
-    background-color: white;
+    background-color: #f4f7fb;
     color: darkblue;
 }
 h1 {
@@ -26,9 +26,12 @@ textarea {
     padding: 10px;
     margin: 8px 0;
     box-sizing: border-box;
+    border: 1px solid darkblue;
+    border-radius: 6px;
 }
 #save-lesson {
     background-color: #C9A227;
+    margin-top: 15px;
     color:darkblue;
     padding:10px 20px;
     border:none;
@@ -44,15 +47,25 @@ textarea {
     color:darkblue;
     font-weight:bold;
     margin-top:10px;
+    background-color: #C9A227;
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: inline-block;
 }
 .lesson-details label,
 .lesson-content label {
     display: block;
-    margin-top: 10px;
+     margin-top: 15px;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
 textarea {
     min-height: 100px;
     resize: vertical;
+}
+input:focus,
+textarea:focus {
+    border-color: #C9A227;
+    outline: none;
 }
