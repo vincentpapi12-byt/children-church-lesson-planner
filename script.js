@@ -23,7 +23,9 @@ saveLessonBtn.addEventListener("click", function() {
     activities: activities.value,
     prayer: prayer.value
 };
-    console.log(lesson);
+    lessons.push(lesson);
+    localStorage.setItem("lessons", JSON.stringify(lessons));
+    console.log(lessons);
     localStorage.setItem("lesson", JSON.stringify(lesson));
     submittedMessage.textContent = "Lesson saved successfully!"
 });
@@ -40,7 +42,3 @@ if (savedLesson) {
     activities.value=lesson.activities;
     prayer.value=lesson.prayer;
 }
-lessons.push(lesson);
-localStorage.setItem("lessons", JSON.stringify(lessons));
-
-console.log(lessons);
