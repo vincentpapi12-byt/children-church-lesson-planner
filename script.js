@@ -6,6 +6,7 @@ const bibleVerse = document.getElementById("bible-verse");
 const lessonSummary= document.getElementById("lesson-summary");
 const activities = document.getElementById("activities");
 const prayer = document.getElementById("prayer");
+const submittedMessage=document.getElementById("submmited");
 
 saveLessonBtn.addEventListener("click", function() {
     console.log(lessonTitle.value);
@@ -21,6 +22,7 @@ saveLessonBtn.addEventListener("click", function() {
 };
     console.log(lesson);
     localStorage.setItem("lesson", JSON.stringify(lesson));
+    submittedMessage.textContent = "Lesson saved successfully!"
 });
 
 const savedLesson = localStorage.getItem("lesson");
