@@ -4,3 +4,49 @@ body {
     background-color: white;
     color: darkblue;
 }
+h1 {
+    color:darkblue;
+     text-align: center;
+}
+.lesson-details,
+.lesson-content {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border: 2px solid darkblue;
+    
+}
+h2 {
+    color: gold;
+}
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+#save-lesson {
+    background-color: gold;
+    color:darkblue;
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#save-lesson:hover {
+  background-color: darkblue;
+  color: gold;
+}
+#submmited {
+    color:darkblue;
+    font-weight:bold;
+    margin-top:10px;
+}
+.lesson-details label,
+.lesson-content label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
