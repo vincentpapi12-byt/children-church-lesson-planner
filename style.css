@@ -69,3 +69,23 @@ textarea:focus {
     border-color: #C9A227;
     outline: none;
 }
+#saved-lessons {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+#lesson-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.lesson-card {
+    background-color: white;
+    padding: 15px;
+    border: 2px solid darkblue;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
