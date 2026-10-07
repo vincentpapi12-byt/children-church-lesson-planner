@@ -6,15 +6,24 @@ const lessons = savedLessons ? JSON.parse(savedLessons) : [];
 const lessonList = document.getElementById("lesson-list");
 
 lessons.forEach(function(lesson) {
-   const lessonElement = document.createElement("div");
-
+    const lessonElement = document.createElement("div");
     lessonElement.classList.add("lesson-card");
-   
-   lessonElement.textContent = lesson.title;
 
-   lessonList.appendChild(lessonElement);
+    const titleElement = document.createElement("h3");
+    titleElement.textContent = lesson.title;
+
+    const ageElement = document.createElement("p");
+    ageElement.textContent = `Age Group: ${lesson.ageGroup}`;
+
+    const verseElement = document.createElement("p");
+    verseElement.textContent = `Bible Verse: ${lesson.bibleVerse}`;
+
+    lessonElement.appendChild(titleElement);
+    lessonElement.appendChild(ageElement);
+    lessonElement.appendChild(verseElement);
+
+    lessonList.appendChild(lessonElement);
 });
-
 
 const saveLessonBtn = document.getElementById("save-lesson");
 
