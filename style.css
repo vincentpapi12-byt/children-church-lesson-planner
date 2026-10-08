@@ -89,3 +89,17 @@ textarea:focus {
     box-sizing: border-box;
 }
 
+.view-lesson {
+    background-color: #C9A227;
+    color: darkblue;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.view-lesson:hover {
+    background-color: darkblue;
+    color: #C9A227;
+}
