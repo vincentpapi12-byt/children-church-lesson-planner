@@ -21,10 +21,18 @@ lessons.forEach(function(lesson) {
     const summaryElement = document.createElement("p");
     summaryElement.textContent = `Lesson Summary: ${lesson.summary}`;
 
+    const activitiesElement = document.createElement("p");
+    activitiesElement.textContent = `Activities: ${lesson.activities}`;
+
+    const prayerElement = document.createElement("p");
+    prayerElement.textContent = `Prayer: ${lesson.prayer}`;
+
     lessonElement.appendChild(titleElement);
     lessonElement.appendChild(ageElement);
     lessonElement.appendChild(verseElement);
     lessonElement.appendChild(summaryElement);
+    lessonElement.appendChild(activitiesElement);
+    lessonElement.appendChild(prayerElement);
 
     lessonList.appendChild(lessonElement);
 });
