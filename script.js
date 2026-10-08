@@ -1,4 +1,4 @@
-
+let editingIndex = null;
 const savedLessons = localStorage.getItem("lessons");
 const lessons = savedLessons ? JSON.parse(savedLessons) : [];
 
@@ -41,6 +41,10 @@ function renderLessons() {
     const deleteElement = document.createElement("button");
     deleteElement.classList.add("delete-lesson");
     deleteElement.textContent = "Delete Lesson";
+
+    const editElement = document.createElement("button");
+    editElement.classList.add("edit-lesson");
+    editElement.textContent = "Edit Lesson";
       
   viewElement.addEventListener("click", function() {
     if (summaryElement.style.display === "none") {
@@ -65,6 +69,18 @@ deleteElement.addEventListener("click", function() {
     localStorage.setItem("lessons", JSON.stringify(lessons));
     renderLessons();
 });
+
+
+ editElement.addEventListener("click", function() {
+    editingIndex = lessons.indexOf(lesson);
+    
+    lessonTitle.value = lesson.title;
+    ageGroup.value = lesson.ageGroup;
+    bibleVerse.value = lesson.bibleVerse;
+    lessonSummary.value = lesson.summary;
+    activities.value = lesson.activities;
+    prayer.value = lesson.prayer;
+});
       
       
     lessonElement.appendChild(titleElement);
@@ -75,7 +91,7 @@ deleteElement.addEventListener("click", function() {
     lessonElement.appendChild(prayerElement);
     lessonElement.appendChild(viewElement);
     lessonElement.appendChild(deleteElement);
-
+    lessonElement.appendChild(editElement);
     lessonList.appendChild(lessonElement);
 });
 }
@@ -103,11 +119,15 @@ saveLessonBtn.addEventListener("click", function() {
         prayer: prayer.value
     };
 
-    lessons.push(lesson);
+    if (editingIndex === null) {
+       lessons.push(lesson);
+} else {
+    lessons[editingIndex] = lesson;
+   }
 
     localStorage.setItem("lessons", JSON.stringify(lessons));
      renderLessons();
-
+     editingIndex = null;
     submittedMessage.textContent = "Lesson saved successfully!";
 
 
