@@ -95,6 +95,14 @@ saveLessonBtn.addEventListener("click", function() {
      renderLessons();
 
     submittedMessage.textContent = "Lesson saved successfully!";
+
+
+   lessonTitle.value = "";
+   ageGroup.value = "";
+   bibleVerse.value = "";
+   lessonSummary.value = "";
+   activities.value = "";
+   prayer.value = "";
    
 });
 
