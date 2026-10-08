@@ -138,3 +138,21 @@ textarea:focus {
         margin-left: 0;
     }
 }
+
+
+
+.edit-lesson {
+    background-color: #f4f7fb;
+    color: darkblue;
+    padding: 10px 20px;
+    border: 2px solid darkblue;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 8px;
+}
+
+.edit-lesson:hover {
+    background-color: darkblue;
+    color: white;
+}
