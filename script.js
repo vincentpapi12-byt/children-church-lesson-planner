@@ -18,6 +18,9 @@ lessons.forEach(function(lesson) {
     const verseElement = document.createElement("p");
     verseElement.textContent = `Bible Verse: ${lesson.bibleVerse}`;
 
+    const summaryElement = document.createElement("p");
+    summaryElement.textContent = `Lesson Summary: ${lesson.summary}`;
+
     lessonElement.appendChild(titleElement);
     lessonElement.appendChild(ageElement);
     lessonElement.appendChild(verseElement);
