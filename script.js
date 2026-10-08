@@ -5,7 +5,9 @@ const lessons = savedLessons ? JSON.parse(savedLessons) : [];
 
 const lessonList = document.getElementById("lesson-list");
 
-lessons.forEach(function(lesson) {
+
+function renderLessons() {
+   lessons.forEach(function(lesson) {
     const lessonElement = document.createElement("div");
     lessonElement.classList.add("lesson-card");
 
@@ -36,6 +38,11 @@ lessons.forEach(function(lesson) {
 
     lessonList.appendChild(lessonElement);
 });
+}
+
+renderLessons();
+
+
 
 const saveLessonBtn = document.getElementById("save-lesson");
 
