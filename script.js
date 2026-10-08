@@ -1,143 +1,243 @@
+
 let editingIndex = null;
+
 const savedLessons = localStorage.getItem("lessons");
 const lessons = savedLessons ? JSON.parse(savedLessons) : [];
-
 
 const lessonList = document.getElementById("lesson-list");
 
 
-function renderLessons() {
-   lessonList.textContent = "";
-   lessons.forEach(function(lesson) {
-    const lessonElement = document.createElement("div");
-    lessonElement.classList.add("lesson-card");
-
-    const titleElement = document.createElement("h3");
-    titleElement.textContent = lesson.title;
-
-    const ageElement = document.createElement("p");
-    ageElement.textContent = `Age Group: ${lesson.ageGroup}`;
-
-    const verseElement = document.createElement("p");
-    verseElement.textContent = `Bible Verse: ${lesson.bibleVerse}`;
-      
-    const summaryElement = document.createElement("p");
-    summaryElement.textContent = `Lesson Summary: ${lesson.summary}`;
-
-    const activitiesElement = document.createElement("p");
-    activitiesElement.textContent = `Activities: ${lesson.activities}`;
-
-    const prayerElement = document.createElement("p");
-    prayerElement.textContent = `Prayer: ${lesson.prayer}`;
-
-    summaryElement.style.display = "none";
-     activitiesElement.style.display = "none";
-     prayerElement.style.display = "none";
-
-    const viewElement = document.createElement("button");
-    viewElement.classList.add("view-lesson");
-    viewElement.textContent = "View Lesson";
-
-    const deleteElement = document.createElement("button");
-    deleteElement.classList.add("delete-lesson");
-    deleteElement.textContent = "Delete Lesson";
-
-    const editElement = document.createElement("button");
-    editElement.classList.add("edit-lesson");
-    editElement.textContent = "Edit Lesson";
-      
-  viewElement.addEventListener("click", function() {
-    if (summaryElement.style.display === "none") {
-        summaryElement.style.display = "block";
-        activitiesElement.style.display = "block";
-        prayerElement.style.display = "block";
-
-        viewElement.textContent = "Hide Lesson";
-    } else {
-        summaryElement.style.display = "none";
-        activitiesElement.style.display = "none";
-        prayerElement.style.display = "none";
-
-        viewElement.textContent = "View Lesson";
-    }
-});
-
-deleteElement.addEventListener("click", function() {
-    const index = lessons.indexOf(lesson);
-    lessons.splice(index, 1);
-
-    localStorage.setItem("lessons", JSON.stringify(lessons));
-    renderLessons();
-});
-
-
- editElement.addEventListener("click", function() {
-    editingIndex = lessons.indexOf(lesson);
-    
-    lessonTitle.value = lesson.title;
-    ageGroup.value = lesson.ageGroup;
-    bibleVerse.value = lesson.bibleVerse;
-    lessonSummary.value = lesson.summary;
-    activities.value = lesson.activities;
-    prayer.value = lesson.prayer;
-});
-      
-      
-    lessonElement.appendChild(titleElement);
-    lessonElement.appendChild(ageElement);
-    lessonElement.appendChild(verseElement);
-    lessonElement.appendChild(summaryElement);
-    lessonElement.appendChild(activitiesElement);
-    lessonElement.appendChild(prayerElement);
-    lessonElement.appendChild(viewElement);
-    lessonElement.appendChild(deleteElement);
-    lessonElement.appendChild(editElement);
-    lessonList.appendChild(lessonElement);
-});
-}
-
-renderLessons();
-
+// FORM ELEMENTS
 const saveLessonBtn = document.getElementById("save-lesson");
 
-const lessonTitle = document.getElementById("lesson-title");
+const lesson = document.getElementById("lesson");
 const ageGroup = document.getElementById("age-group");
 const bibleVerse = document.getElementById("bible-verse");
-const lessonSummary= document.getElementById("lesson-summary");
+const recap = document.getElementById("recap");
+const objective = document.getElementById("objective");
+const example = document.getElementById("example");
 const activities = document.getElementById("activities");
-const prayer = document.getElementById("prayer");
-const submittedMessage=document.getElementById("submmited");
+const outcomes = document.getElementById("outcomes");
+const declarations = document.getElementById("declarations");
 
+const submittedMessage = document.getElementById("submmited");
+
+
+// RENDER SAVED LESSONS
+function renderLessons() {
+    lessonList.textContent = "";
+
+    lessons.forEach(function(lessonData) {
+
+        const lessonElement = document.createElement("div");
+        lessonElement.classList.add("lesson-card");
+
+
+        // LESSON TITLE
+        const lessonElementTitle = document.createElement("h3");
+        lessonElementTitle.textContent = lessonData.lesson;
+
+
+        // AGE GROUP
+        const ageElement = document.createElement("p");
+        ageElement.textContent = `Age Group: ${lessonData.ageGroup}`;
+
+
+        // BIBLE VERSE
+        const verseElement = document.createElement("p");
+        verseElement.textContent = `Bible Verse: ${lessonData.bibleVerse}`;
+
+
+        // RECAP
+        const recapElement = document.createElement("p");
+        recapElement.textContent = `Recap: ${lessonData.recap}`;
+
+
+        // OBJECTIVE
+        const objectiveElement = document.createElement("p");
+        objectiveElement.textContent = `Objective: ${lessonData.objective}`;
+
+
+        // EXAMPLE / DEMONSTRATION
+        const exampleElement = document.createElement("p");
+        exampleElement.textContent = `Example/Demonstration: ${lessonData.example}`;
+
+
+        // ACTIVITIES
+        const activitiesElement = document.createElement("p");
+        activitiesElement.textContent = `Activities: ${lessonData.activities}`;
+
+
+        // OUTCOMES / CONCLUSION
+        const outcomesElement = document.createElement("p");
+        outcomesElement.textContent = `Outcomes/Conclusion: ${lessonData.outcomes}`;
+
+
+        // DECLARATIONS
+        const declarationsElement = document.createElement("p");
+        declarationsElement.textContent = `Declarations: ${lessonData.declarations}`;
+
+
+        // HIDE LESSON CONTENT INITIALLY
+        recapElement.style.display = "none";
+        objectiveElement.style.display = "none";
+        exampleElement.style.display = "none";
+        activitiesElement.style.display = "none";
+        outcomesElement.style.display = "none";
+        declarationsElement.style.display = "none";
+
+
+        // VIEW BUTTON
+        const viewElement = document.createElement("button");
+        viewElement.classList.add("view-lesson");
+        viewElement.textContent = "View Lesson";
+
+
+        // DELETE BUTTON
+        const deleteElement = document.createElement("button");
+        deleteElement.classList.add("delete-lesson");
+        deleteElement.textContent = "Delete Lesson";
+
+
+        // EDIT BUTTON
+        const editElement = document.createElement("button");
+        editElement.classList.add("edit-lesson");
+        editElement.textContent = "Edit Lesson";
+
+
+        // VIEW LESSON
+        viewElement.addEventListener("click", function() {
+
+            if (recapElement.style.display === "none") {
+
+                recapElement.style.display = "block";
+                objectiveElement.style.display = "block";
+                exampleElement.style.display = "block";
+                activitiesElement.style.display = "block";
+                outcomesElement.style.display = "block";
+                declarationsElement.style.display = "block";
+
+                viewElement.textContent = "Hide Lesson";
+
+            } else {
+
+                recapElement.style.display = "none";
+                objectiveElement.style.display = "none";
+                exampleElement.style.display = "none";
+                activitiesElement.style.display = "none";
+                outcomesElement.style.display = "none";
+                declarationsElement.style.display = "none";
+
+                viewElement.textContent = "View Lesson";
+            }
+        });
+
+
+        // DELETE LESSON
+        deleteElement.addEventListener("click", function() {
+
+            const index = lessons.indexOf(lessonData);
+
+            lessons.splice(index, 1);
+
+            localStorage.setItem("lessons", JSON.stringify(lessons));
+
+            renderLessons();
+        });
+
+
+        // EDIT LESSON
+        editElement.addEventListener("click", function() {
+
+            editingIndex = lessons.indexOf(lessonData);
+
+            lesson.value = lessonData.lesson;
+            ageGroup.value = lessonData.ageGroup;
+            bibleVerse.value = lessonData.bibleVerse;
+            recap.value = lessonData.recap;
+            objective.value = lessonData.objective;
+            example.value = lessonData.example;
+            activities.value = lessonData.activities;
+            outcomes.value = lessonData.outcomes;
+            declarations.value = lessonData.declarations;
+        });
+
+
+        // ADD ELEMENTS TO CARD
+        lessonElement.appendChild(lessonElementTitle);
+        lessonElement.appendChild(ageElement);
+        lessonElement.appendChild(verseElement);
+        lessonElement.appendChild(recapElement);
+        lessonElement.appendChild(objectiveElement);
+        lessonElement.appendChild(exampleElement);
+        lessonElement.appendChild(activitiesElement);
+        lessonElement.appendChild(outcomesElement);
+        lessonElement.appendChild(declarationsElement);
+        lessonElement.appendChild(viewElement);
+        lessonElement.appendChild(deleteElement);
+        lessonElement.appendChild(editElement);
+
+        lessonList.appendChild(lessonElement);
+    });
+}
+
+
+// DISPLAY SAVED LESSONS WHEN PAGE LOADS
+renderLessons();
+
+
+// SAVE LESSON
 saveLessonBtn.addEventListener("click", function() {
 
-    const lesson = {
-        title: lessonTitle.value,
+    const lessonData = {
+        lesson: lesson.value,
         ageGroup: ageGroup.value,
         bibleVerse: bibleVerse.value,
-        summary: lessonSummary.value,
+        recap: recap.value,
+        objective: objective.value,
+        example: example.value,
         activities: activities.value,
-        prayer: prayer.value
+        outcomes: outcomes.value,
+        declarations: declarations.value
     };
 
-    if (editingIndex === null) {
-       lessons.push(lesson);
-} else {
-    lessons[editingIndex] = lesson;
-   }
 
+    // CREATE OR UPDATE
+    if (editingIndex === null) {
+
+        lessons.push(lessonData);
+
+    } else {
+
+        lessons[editingIndex] = lessonData;
+    }
+
+
+    // SAVE TO LOCAL STORAGE
     localStorage.setItem("lessons", JSON.stringify(lessons));
-     renderLessons();
-     editingIndex = null;
+
+
+    // UPDATE THE PAGE
+    renderLessons();
+
+
+    // EXIT EDIT MODE
+    editingIndex = null;
+
+
+    // SUCCESS MESSAGE
     submittedMessage.textContent = "Lesson saved successfully!";
 
 
-   lessonTitle.value = "";
-   ageGroup.value = "";
-   bibleVerse.value = "";
-   lessonSummary.value = "";
-   activities.value = "";
-   prayer.value = "";
-   
+    // CLEAR FORM
+    lesson.value = "";
+    ageGroup.value = "";
+    bibleVerse.value = "";
+    recap.value = "";
+    objective.value = "";
+    example.value = "";
+    activities.value = "";
+    outcomes.value = "";
+    declarations.value = "";
 });
-
 
