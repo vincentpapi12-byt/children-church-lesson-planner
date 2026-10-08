@@ -37,6 +37,11 @@ function renderLessons() {
     const viewElement = document.createElement("button");
     viewElement.classList.add("view-lesson");
     viewElement.textContent = "View Lesson";
+
+    const deleteElement = document.createElement("button");
+    deleteElement.classList.add("delete-lesson");
+    deleteElement.textContent = "Delete Lesson";
+      
   viewElement.addEventListener("click", function() {
     if (summaryElement.style.display === "none") {
         summaryElement.style.display = "block";
@@ -53,6 +58,14 @@ function renderLessons() {
     }
 });
 
+deleteElement.addEventListener("click", function() {
+    const index = lessons.indexOf(lesson);
+    lessons.splice(index, 1);
+
+    localStorage.setItem("lessons", JSON.stringify(lessons));
+    renderLessons();
+});
+      
       
     lessonElement.appendChild(titleElement);
     lessonElement.appendChild(ageElement);
@@ -61,6 +74,7 @@ function renderLessons() {
     lessonElement.appendChild(activitiesElement);
     lessonElement.appendChild(prayerElement);
     lessonElement.appendChild(viewElement);
+    lessonElement.appendChild(deleteElement);
 
     lessonList.appendChild(lessonElement);
 });
