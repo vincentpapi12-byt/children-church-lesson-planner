@@ -112,3 +112,20 @@ textarea:focus {
 .lesson-card h3 {
     margin-top: 0;
 }
+
+
+.delete-lesson {
+    background-color: darkblue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 8px;
+}
+
+.delete-lesson:hover {
+    background-color: #C9A227;
+    color: darkblue;
+}
