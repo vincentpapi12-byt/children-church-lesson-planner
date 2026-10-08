@@ -21,6 +21,10 @@ function renderLessons() {
     const verseElement = document.createElement("p");
     verseElement.textContent = `Bible Verse: ${lesson.bibleVerse}`;
 
+     summaryElement.style.display = "none";
+     activitiesElement.style.display = "none";
+     prayerElement.style.display = "none";
+      
     const summaryElement = document.createElement("p");
     summaryElement.textContent = `Lesson Summary: ${lesson.summary}`;
 
@@ -30,12 +34,32 @@ function renderLessons() {
     const prayerElement = document.createElement("p");
     prayerElement.textContent = `Prayer: ${lesson.prayer}`;
 
+    const viewElement = document.createElement("button");
+    viewElement.classList.add("view-lesson");
+  viewElement.addEventListener("click", function() {
+    if (summaryElement.style.display === "none") {
+        summaryElement.style.display = "block";
+        activitiesElement.style.display = "block";
+        prayerElement.style.display = "block";
+
+        viewElement.textContent = "Hide Lesson";
+    } else {
+        summaryElement.style.display = "none";
+        activitiesElement.style.display = "none";
+        prayerElement.style.display = "none";
+
+        viewElement.textContent = "View Lesson";
+    }
+});
+
+      
     lessonElement.appendChild(titleElement);
     lessonElement.appendChild(ageElement);
     lessonElement.appendChild(verseElement);
     lessonElement.appendChild(summaryElement);
     lessonElement.appendChild(activitiesElement);
     lessonElement.appendChild(prayerElement);
+    lessonElement.appendChild(viewElement);
 
     lessonList.appendChild(lessonElement);
 });
