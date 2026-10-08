@@ -20,10 +20,6 @@ function renderLessons() {
 
     const verseElement = document.createElement("p");
     verseElement.textContent = `Bible Verse: ${lesson.bibleVerse}`;
-
-     summaryElement.style.display = "none";
-     activitiesElement.style.display = "none";
-     prayerElement.style.display = "none";
       
     const summaryElement = document.createElement("p");
     summaryElement.textContent = `Lesson Summary: ${lesson.summary}`;
@@ -34,8 +30,13 @@ function renderLessons() {
     const prayerElement = document.createElement("p");
     prayerElement.textContent = `Prayer: ${lesson.prayer}`;
 
+    summaryElement.style.display = "none";
+     activitiesElement.style.display = "none";
+     prayerElement.style.display = "none";
+
     const viewElement = document.createElement("button");
     viewElement.classList.add("view-lesson");
+    viewElement.textContent = "View Lesson";
   viewElement.addEventListener("click", function() {
     if (summaryElement.style.display === "none") {
         summaryElement.style.display = "block";
@@ -67,8 +68,6 @@ function renderLessons() {
 
 renderLessons();
 
-
-
 const saveLessonBtn = document.getElementById("save-lesson");
 
 const lessonTitle = document.getElementById("lesson-title");
@@ -80,9 +79,6 @@ const prayer = document.getElementById("prayer");
 const submittedMessage=document.getElementById("submmited");
 
 saveLessonBtn.addEventListener("click", function() {
- console.log(lessonTitle.value);
-    console.log(ageGroup.value);
-    console.log(bibleVerse.value);
 
     const lesson = {
         title: lessonTitle.value,
