@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,42 +7,62 @@
     <title>Children's Church Lesson Planner</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>Children's Church Lesson Planner</h1>
+
+    <h1>Children's Church Lesson Planner</h1>
+
     <div class="lesson-details">
-    <h2>Lesson Details</h2>
+        <h2>Lesson Details</h2>
 
-    <label for="lesson-title">Lesson Title:</label>
-    <input type="text" id="lesson-title">
+        <label for="lesson">Lesson:</label>
+        <input type="text" id="lesson">
 
-    <label for="age-group">Age Group:</label>
-    <input type="text" id="age-group">
+        <label for="age-group">Age Group:</label>
+        <input type="text" id="age-group">
 
-    <label for="bible-verse">Bible Verse:</label>
-    <input type="text" id="bible-verse">
-</div>
+        <label for="bible-verse">Bible Verse:</label>
+        <input type="text" id="bible-verse">
+    </div>
+
 
     <div class="lesson-content">
-    <h2>Lesson Content</h2>
+        <h2>Lesson Content</h2>
 
-    <label for="lesson-summary">Lesson Summary:</label>
-    <textarea id="lesson-summary"></textarea>
+        <label for="recap">Recap:</label>
+        <textarea id="recap"></textarea>
 
-    <label for="activities">Activities:</label>
-    <textarea id="activities"></textarea>
+        <label for="objective">Objective:</label>
+        <textarea id="objective"></textarea>
 
-    <label for="prayer">Prayer:</label>
-    <textarea id="prayer"></textarea>
-</div>
+        <label for="example">Example/Demonstration:</label>
+        <textarea id="example"></textarea>
 
-  <button type="button" id="save-lesson">Save Lesson</button>
+        <label for="activities">Activities (if there are any):</label>
+        <textarea id="activities"></textarea>
+
+        <label for="outcomes">Outcomes/Conclusion:</label>
+        <textarea id="outcomes"></textarea>
+
+        <label for="declarations">Declarations (if there are any):</label>
+        <textarea id="declarations"></textarea>
+    </div>
+
+
+    <button type="button" id="save-lesson">Save Lesson</button>
+
     <p id="submmited"></p>
 
+
     <section id="saved-lessons">
-    <h2>Saved Lessons</h2>
-    <div id="lesson-list"></div>
+        <h2>Saved Lessons</h2>
+
+        <div id="lesson-list"></div>
     </section>
 
-<script src="script.js"></script>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
+
