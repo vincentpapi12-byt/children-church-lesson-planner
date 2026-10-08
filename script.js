@@ -7,6 +7,7 @@ const lessonList = document.getElementById("lesson-list");
 
 
 function renderLessons() {
+   lessonList.textContent = "";
    lessons.forEach(function(lesson) {
     const lessonElement = document.createElement("div");
     lessonElement.classList.add("lesson-card");
@@ -71,24 +72,10 @@ saveLessonBtn.addEventListener("click", function() {
     lessons.push(lesson);
 
     localStorage.setItem("lessons", JSON.stringify(lessons));
-
-    console.log(lessons);
-
-    localStorage.setItem("lesson", JSON.stringify(lesson));
+     renderLessons();
 
     submittedMessage.textContent = "Lesson saved successfully!";
    
 });
 
-const savedLesson = localStorage.getItem("lesson");
 
-if (savedLesson) {
-    const lesson = JSON.parse(savedLesson);
-
-    lessonTitle.value = lesson.title;
-    ageGroup.value = lesson.ageGroup;
-    bibleVerse.value = lesson.bibleVerse;
-    lessonSummary.value=lesson.summary;
-    activities.value=lesson.activities;
-    prayer.value=lesson.prayer;
-}
