@@ -1,13 +1,16 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
     background-color: #f4f7fb;
     color: darkblue;
 }
+
 h1 {
-    color:darkblue;
-     text-align: center;
+    color: darkblue;
+    text-align: center;
 }
+
 .lesson-details,
 .lesson-content {
     background-color: white;
@@ -16,10 +19,21 @@ h1 {
     margin: 20px auto;
     border: 2px solid darkblue;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
 }
+
 h2 {
     color: #C9A227;
 }
+
+.lesson-details label,
+.lesson-content label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
 input,
 textarea {
     width: 100%;
@@ -28,47 +42,55 @@ textarea {
     box-sizing: border-box;
     border: 1px solid darkblue;
     border-radius: 6px;
-}
-#save-lesson {
-    background-color: #C9A227;
-    margin-top: 15px;
-    color:darkblue;
-    padding:10px 20px;
-    border:none;
-    border-radius:8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-#save-lesson:hover {
-  background-color: darkblue;
-  color: #C9A227;
-}
-#submmited {
-    color:darkblue;
-    font-weight:bold;
-    margin-top:10px;
-    background-color: #C9A227;
-    padding: 8px 12px;
-    border-radius: 6px;
-    display: inline-block;
-}
-.lesson-details label,
-.lesson-content label {
-    display: block;
-     margin-top: 15px;
-    margin-bottom: 5px;
-    font-weight: bold;
+    font-family: Arial, sans-serif;
 }
 
 textarea {
     min-height: 100px;
     resize: vertical;
 }
+
 input:focus,
 textarea:focus {
     border-color: #C9A227;
     outline: none;
 }
+
+
+/* SAVE BUTTON */
+
+#save-lesson {
+    background-color: #C9A227;
+    margin-top: 15px;
+    color: darkblue;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#save-lesson:hover {
+    background-color: darkblue;
+    color: #C9A227;
+}
+
+
+/* SUCCESS MESSAGE */
+
+#submmited {
+    color: darkblue;
+    font-weight: bold;
+    margin-top: 10px;
+    background-color: #C9A227;
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+
+/* SAVED LESSONS */
+
 #saved-lessons {
     max-width: 800px;
     margin: 20px auto;
@@ -80,6 +102,9 @@ textarea:focus {
     gap: 15px;
 }
 
+
+/* LESSON CARD */
+
 .lesson-card {
     background-color: white;
     padding: 15px;
@@ -88,6 +113,17 @@ textarea:focus {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
 }
+
+.lesson-card h3 {
+    margin-top: 0;
+}
+
+.lesson-card p {
+    margin: 8px 0;
+}
+
+
+/* VIEW BUTTON */
 
 .view-lesson {
     background-color: #C9A227;
@@ -105,14 +141,7 @@ textarea:focus {
 }
 
 
-.lesson-card p {
-    margin: 8px 0;
-}
-
-.lesson-card h3 {
-    margin-top: 0;
-}
-
+/* DELETE BUTTON */
 
 .delete-lesson {
     background-color: darkblue;
@@ -130,16 +159,8 @@ textarea:focus {
     color: darkblue;
 }
 
-@media (max-width: 600px) {
-    .view-lesson,
-    .delete-lesson,
-    .edit-lesson {
-        width: 100%;
-        margin-left: 0;
-    }
-}
 
-
+/* EDIT BUTTON */
 
 .edit-lesson {
     background-color: #f4f7fb;
@@ -156,3 +177,26 @@ textarea:focus {
     background-color: darkblue;
     color: white;
 }
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    body {
+        margin: 10px;
+    }
+
+    .lesson-details,
+    .lesson-content {
+        padding: 15px;
+    }
+
+    .view-lesson,
+    .delete-lesson,
+    .edit-lesson {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
