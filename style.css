@@ -103,3 +103,12 @@ textarea:focus {
     background-color: darkblue;
     color: #C9A227;
 }
+
+
+.lesson-card p {
+    margin: 8px 0;
+}
+
+.lesson-card h3 {
+    margin-top: 0;
+}
