@@ -129,3 +129,12 @@ textarea:focus {
     background-color: #C9A227;
     color: darkblue;
 }
+
+@media (max-width: 600px) {
+    .view-lesson,
+    .delete-lesson,
+    .edit-lesson {
+        width: 100%;
+        margin-left: 0;
+    }
+}
