@@ -24,6 +24,7 @@ lessons.forEach(function(lesson) {
     lessonElement.appendChild(titleElement);
     lessonElement.appendChild(ageElement);
     lessonElement.appendChild(verseElement);
+    lessonElement.appendChild(summaryElement);
 
     lessonList.appendChild(lessonElement);
 });
