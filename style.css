@@ -379,6 +379,93 @@ color: #536781;
 }
 
 
+/* MISSION SECTION */
+
+.mission {
+padding: 70px 25px;
+text-align: center;
+background-color: #f4f7fb;
+color: #061a38;
+border-top: 3px solid #e6b844;
+border-bottom: 3px solid #e6b844;
+}
+
+.mission h2 {
+font-size: 32px;
+margin: 15px 0;
+color: #061a38;
+}
+
+.mission > p:last-child {
+max-width: 700px;
+margin: 0 auto;
+line-height: 1.9;
+color: #536781;
+font-size: 18px;
+}
+
+
+/* OUR APPROACH */
+
+.approach {
+padding: 70px 25px;
+background-color: #ffffff;
+color: #061a38;
+text-align: center;
+}
+
+.approach > h2 {
+color: #061a38;
+font-size: 32px;
+margin: 15px 0;
+}
+
+.approach-intro {
+max-width: 700px;
+margin: 0 auto 35px;
+line-height: 1.8;
+color: #536781;
+}
+
+.approach-container {
+display: flex;
+justify-content: center;
+align-items: stretch;
+flex-wrap: wrap;
+gap: 25px;
+max-width: 1100px;
+margin: 0 auto;
+}
+
+.approach-card {
+flex: 1 1 240px;
+max-width: 310px;
+padding: 30px 22px;
+background-color: #f8faff;
+border: 1px solid #e1e7f0;
+border-top: 4px solid #e6b844;
+border-radius: 12px;
+box-shadow: 0 5px 18px rgba(6, 26, 56, 0.08);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.approach-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 12px 25px rgba(6, 26, 56, 0.14);
+}
+
+.approach-card h3 {
+color: #123665;
+font-size: 22px;
+}
+
+.approach-card p {
+color: #536781;
+line-height: 1.8;
+}
+
+
+
 
 
 /* FEATURES */
@@ -484,6 +571,23 @@ border-color: #e6b844;
         flex-wrap: wrap;
         gap: 20px;
     }
+
+
+.mission,
+.approach {
+    padding: 45px 18px;
+}
+
+.mission h2,
+.approach > h2 {
+    font-size: 28px;
+}
+
+.approach-card {
+    flex-basis: 100%;
+    max-width: 100%;
+}
+
 
 
 }
