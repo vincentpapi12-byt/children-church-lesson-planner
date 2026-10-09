@@ -60,6 +60,53 @@ function createLessonMessage(lessonData) {
 }
 
 
+
+function downloadLessonPDF(lessonData) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.setFontSize(18);
+    doc.text("GOD'S PRESENCE MINISTRIES", 20, 20);
+
+    doc.setFontSize(11);
+    doc.text("All Life in God's Presence", 20, 30);
+
+    doc.setFontSize(16);
+    doc.text("Children's Church Lesson", 20, 45);
+
+    doc.setFontSize(12);
+
+    const lessonText = `
+        Lesson: ${lessonData.lesson}
+        Age Group: ${lessonData.ageGroup}
+        Bible Verse: ${lessonData.bibleVerse}
+
+        RECAP
+        ${lessonData.recap}
+
+        OBJECTIVE
+        ${lessonData.objective}
+
+        EXAMPLE / DEMONSTRATION
+        ${lessonData.example}
+
+        ACTIVITIES
+        ${lessonData.activities}
+
+        OUTCOMES / CONCLUSION
+        ${lessonData.outcomes}
+
+        DECLARATIONS
+        ${lessonData.declarations}
+`;
+
+    const lines = doc.splitTextToSize(lessonText, 170);
+    doc.text(lines, 20, 60);
+
+    const fileName = `${lessonData.lesson || "lesson"}.pdf`;
+    doc.save(fileName);
+}
+
     // RENDER SAVED LESSONS
     function renderLessons() {
         lessonList.textContent = "";
@@ -148,6 +195,12 @@ function createLessonMessage(lessonData) {
             shareElement.textContent = "Share on WhatsApp";
 
 
+             // PDF BUTTON
+                const pdfElement = document.createElement("button");
+                pdfElement.classList.add("pdf-lesson");
+                pdfElement.textContent = "Download PDF";
+
+
             // VIEW LESSON
             viewElement.addEventListener("click", function() {
 
@@ -216,6 +269,16 @@ function createLessonMessage(lessonData) {
                     window.open(whatsappURL, "_blank");
                 });
 
+                
+                // DOWNLOAD PDF
+                pdfElement.addEventListener("click", function() {
+                    downloadLessonPDF(lessonData);
+                });
+
+
+                
+               
+
             // ADD ELEMENTS TO CARD
             lessonElement.appendChild(lessonElementTitle);
             lessonElement.appendChild(ageElement);
@@ -230,6 +293,7 @@ function createLessonMessage(lessonData) {
             lessonElement.appendChild(deleteElement);
             lessonElement.appendChild(editElement);
             lessonElement.appendChild(shareElement);
+            lessonElement.appendChild(pdfElement);
 
             lessonList.appendChild(lessonElement);
         });

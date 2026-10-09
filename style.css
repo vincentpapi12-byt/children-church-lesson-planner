@@ -1,4 +1,7 @@
 
+* {
+    box-sizing: border-box;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -214,6 +217,24 @@ textarea:focus {
     color: white;
 }
 
+
+.pdf-lesson {
+    background-color: darkblue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 8px;
+    transition: 0.3s;
+}
+
+.pdf-lesson:hover {
+    background-color: #C9A227;
+    color: darkblue;
+}
+
 /* MOBILE */
 
 @media (max-width: 600px) {
@@ -227,7 +248,11 @@ textarea:focus {
         padding: 15px;
     }
 
-   .view-lesson,.delete-lesson,.edit-lesson,.share-lesson {
+  .view-lesson,
+.delete-lesson,
+.edit-lesson,
+.share-lesson,
+.pdf-lesson {
     width: 100%;
     margin-left: 0;
 }
@@ -572,18 +597,32 @@ border-color: #e6b844;
 /* MOBILE */
 
 @media (max-width: 600px) {
-    .hero {
-        padding: 45px 22px;
-        min-height: 65vh;
-    }
+    
+.hero {
+    padding: 45px 22px;
+    min-height: 65vh;
+    box-sizing: border-box;
+    width: 100%;
+}
 
+.hero h1,
+.hero h2,
+.hero-description {
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
     .hero h1 {
         font-size: 32px;
     }
 
-    .hero h2 {
-        font-size: 20px;
-    }
+    
+.hero h2 {
+    font-size: 18px;
+    width: 100%;
+    min-height: 5.5em;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+}
 
     .features {
         padding: 45px 18px;
