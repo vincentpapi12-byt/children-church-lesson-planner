@@ -76,6 +76,23 @@ textarea:focus {
 }
 
 
+#share-lesson {
+    background-color: #C9A227;
+    color: darkblue;
+    margin-top: 15px;
+    margin-left: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#share-lesson:hover {
+    background-color: darkblue;
+    color: white;
+}
+
 /* SUCCESS MESSAGE */
 
 #submmited {
