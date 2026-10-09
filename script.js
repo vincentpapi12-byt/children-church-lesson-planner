@@ -8,6 +8,7 @@ const isPlannerPage = document.getElementById("lesson-list") !== null;
 if (isPlannerPage) {
 
     const savedLessons = localStorage.getItem("lessons");
+    const shareLessonBtn = document.getElementById("share-lesson");
     const lessons = savedLessons ? JSON.parse(savedLessons) : [];
 
     const lessonList = document.getElementById("lesson-list");
@@ -27,6 +28,36 @@ if (isPlannerPage) {
     const declarations = document.getElementById("declarations");
 
     const submittedMessage = document.getElementById("submmited");
+
+    
+function createLessonMessage(lessonData) {
+            return `GOD'S PRESENCE MINISTRIES
+        CHILDREN'S CHURCH LESSON
+
+        Lesson: ${lessonData.lesson}
+        Age Group: ${lessonData.ageGroup}
+        Bible Verse: ${lessonData.bibleVerse}
+
+        RECAP
+        ${lessonData.recap}
+
+        OBJECTIVE
+        ${lessonData.objective}
+
+        EXAMPLE / DEMONSTRATION
+        ${lessonData.example}
+
+        ACTIVITIES
+        ${lessonData.activities}
+
+        OUTCOMES / CONCLUSION
+        ${lessonData.outcomes}
+
+        DECLARATIONS
+        ${lessonData.declarations}
+
+        All Life in God's Presence`;
+}
 
 
     // RENDER SAVED LESSONS
@@ -246,5 +277,26 @@ if (isPlannerPage) {
         outcomes.value = "";
         declarations.value = "";
     });
+
+    
+shareLessonBtn.addEventListener("click", () => {
+    const lessonData = {
+        lesson: lesson.value,
+        ageGroup: ageGroup.value,
+        bibleVerse: bibleVerse.value,
+        recap: recap.value,
+        objective: objective.value,
+        example: example.value,
+        activities: activities.value,
+        outcomes: outcomes.value,
+        declarations: declarations.value
+    };
+
+    const message = createLessonMessage(lessonData);
+
+    const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, "_blank");
+});
 
 }
