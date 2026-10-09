@@ -1,1 +1,76 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Children's Church Lesson Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+    <h2>GOD'S PRESENCE MINISTRIES</h2>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="planner.html">Lesson Planner</a>
+    </div>
+   </nav>
+
+    <h1>Children's Church Lesson Planner</h1>
+
+    <div class="lesson-details">
+        <h2>Lesson Details</h2>
+
+        <label for="lesson">Lesson:</label>
+        <input type="text" id="lesson">
+
+        <label for="age-group">Age Group:</label>
+        <input type="text" id="age-group">
+
+        <label for="bible-verse">Bible Verse:</label>
+        <input type="text" id="bible-verse">
+    </div>
+
+
+    <div class="lesson-content">
+        <h2>Lesson Content</h2>
+
+        <label for="recap">Recap:</label>
+        <textarea id="recap"></textarea>
+
+        <label for="objective">Objective:</label>
+        <textarea id="objective"></textarea>
+
+        <label for="example">Example/Demonstration:</label>
+        <textarea id="example"></textarea>
+
+        <label for="activities">Activities (if there are any):</label>
+        <textarea id="activities"></textarea>
+
+        <label for="outcomes">Outcomes/Conclusion:</label>
+        <textarea id="outcomes"></textarea>
+
+        <label for="declarations">Declarations (if there are any):</label>
+        <textarea id="declarations"></textarea>
+    </div>
+
+
+    <button type="button" id="save-lesson">Save Lesson</button>
+
+    <p id="submmited"></p>
+
+
+    <section id="saved-lessons">
+        <h2>Saved Lessons</h2>
+
+        <div id="lesson-list"></div>
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
