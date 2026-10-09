@@ -141,6 +141,12 @@ function createLessonMessage(lessonData) {
             editElement.classList.add("edit-lesson");
             editElement.textContent = "Edit Lesson";
 
+                        
+            // SHARE BUTTON
+            const shareElement = document.createElement("button");
+            shareElement.classList.add("share-lesson");
+            shareElement.textContent = "Share on WhatsApp";
+
 
             // VIEW LESSON
             viewElement.addEventListener("click", function() {
@@ -200,6 +206,16 @@ function createLessonMessage(lessonData) {
             });
 
 
+                            
+                // SHARE LESSON
+                shareElement.addEventListener("click", function() {
+                    const message = createLessonMessage(lessonData);
+
+                    const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
+
+                    window.open(whatsappURL, "_blank");
+                });
+
             // ADD ELEMENTS TO CARD
             lessonElement.appendChild(lessonElementTitle);
             lessonElement.appendChild(ageElement);
@@ -213,6 +229,7 @@ function createLessonMessage(lessonData) {
             lessonElement.appendChild(viewElement);
             lessonElement.appendChild(deleteElement);
             lessonElement.appendChild(editElement);
+            lessonElement.appendChild(shareElement);
 
             lessonList.appendChild(lessonElement);
         });

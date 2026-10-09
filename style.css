@@ -179,6 +179,24 @@ textarea:focus {
 }
 
 
+
+.share-lesson {
+    background-color: #C9A227;
+    color: darkblue;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 8px;
+    transition: 0.3s;
+}
+
+.share-lesson:hover {
+    background-color: darkblue;
+    color: white;
+}
+
 /* MOBILE */
 
 @media (max-width: 600px) {
@@ -192,12 +210,10 @@ textarea:focus {
         padding: 15px;
     }
 
-    .view-lesson,
-    .delete-lesson,
-    .edit-lesson {
-        width: 100%;
-        margin-left: 0;
-    }
+   .view-lesson,.delete-lesson,.edit-lesson,.share-lesson {
+    width: 100%;
+    margin-left: 0;
+}
 }
 
 
