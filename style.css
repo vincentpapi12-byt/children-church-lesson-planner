@@ -210,11 +210,10 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 18px 8%;
-background-color: #061a38;
-color: #ffffff;
+background-color: #ffffff;
+color: #061a38;
 border-bottom: 3px solid #e6b844;
 }
-
 
 nav h2 {
 font-size: 22px;
@@ -227,16 +226,21 @@ gap: 25px;
 }
 
 nav a {
-color: #ffffff;
+color: #061a38;
 text-decoration: none;
 font-weight: bold;
-transition: color 0.3s ease;
+display: inline-block;
+padding: 6px 0;
+border-bottom: 2px solid transparent;
+transition: color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 }
-
 
 nav a:hover {
-color: #c49a2c;
+color: #c49a27;
+border-bottom-color: #c49a27;
+transform: translateY(-2px);
 }
+
 
 
 /* CHURCH BRAND */
@@ -248,32 +252,22 @@ gap: 12px;
 }
 
 .logo {
-display: flex;
-align-items: center;
-color: #ffffff;
-font-size: 32px;
-font-weight: 900;
-letter-spacing: -5px;
-}
-
-
-.logo span {
 display: inline-block;
+color: #061a38;
+font-family: Georgia, "Times New Roman", serif;
+font-size: 38px;
+font-weight: bold;
+letter-spacing: -3px;
+line-height: 1;
 }
 
-.logo .tree {
-font-size: 23px;
-letter-spacing: 0;
-margin: 0 3px;
-}
+
 
 .brand h2 {
 font-size: 17px;
 line-height: 1.4;
 max-width: 190px;
-color: #ffffff;
 }
-
 
 
 
@@ -346,12 +340,46 @@ margin-top: 20px;
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s ease;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(230, 184, 68, 0.2);
 }
 
 .hero-button:hover {
     background-color: #ffffff;
     transform: translateY(-3px);
 }
+
+
+/* WELCOME SECTION */
+
+.welcome {
+padding: 70px 25px;
+text-align: center;
+background-color: #ffffff;
+color: #061a38;
+}
+
+.section-label {
+color: #b58a25;
+font-weight: bold;
+letter-spacing: 3px;
+font-size: 13px;
+}
+
+.welcome h2 {
+font-size: 32px;
+margin: 15px 0;
+}
+
+.welcome > p:last-child {
+max-width: 700px;
+margin: 0 auto;
+line-height: 1.9;
+color: #536781;
+}
+
+
+
 
 /* FEATURES */
 
@@ -398,9 +426,9 @@ margin-top: 20px;
 
 
 .feature-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 12px 25px rgba(6, 26, 56, 0.14);
-    border-color: #e6b844;
+transform: translateY(-7px);
+box-shadow: 0 12px 25px rgba(6, 26, 56, 0.14);
+border-color: #e6b844;
 }
 
 
@@ -458,6 +486,65 @@ margin-top: 20px;
     }
 
 
+}
+
+
+/* FOOTER */
+
+.site-footer {
+background-color: #061a38;
+color: #ffffff;
+text-align: center;
+padding: 40px 20px 20px;
+border-top: 3px solid #e6b844;
+}
+
+.site-footer h3 {
+color: #e6b844;
+margin-bottom: 10px;
+}
+
+.site-footer > p {
+line-height: 1.8;
+}
+
+.footer-links {
+display: flex;
+justify-content: center;
+gap: 25px;
+margin: 20px 0;
+}
+
+.footer-links a {
+color: #ffffff;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+color: #e6b844;
+}
+
+.site-footer .copyright {
+border-top: 1px solid rgba(255, 255, 255, 0.2);
+padding-top: 18px;
+margin-top: 25px;
+font-size: 13px;
+color: #c5cede;
+}
+
+
+/* SCROLL REVEAL ANIMATION */
+
+.reveal-section {
+opacity: 0;
+transform: translateY(25px);
+transition: opacity 1.7s ease, transform 1.7s ease;
+}
+
+.reveal-section.visible {
+opacity: 1;
+transform: translateY(0);
 }
 
 
