@@ -388,23 +388,23 @@ function renderLessons() {
 
         const viewElement = document.createElement("button");
         viewElement.classList.add("view-lesson");
-        viewElement.textContent = "View Lesson";
+        viewElement.innerHTML = '<i class="fa-solid fa-eye" aria-hidden="true"></i> View';
 
         const deleteElement = document.createElement("button");
         deleteElement.classList.add("delete-lesson");
-        deleteElement.textContent = "Delete Lesson";
+        deleteElement.innerHTML = '<i class="fa-solid fa-trash" aria-hidden="true"></i> Delete';
 
         const editElement = document.createElement("button");
         editElement.classList.add("edit-lesson");
-        editElement.textContent = "Edit Lesson";
+       editElement.innerHTML = '<i class="fa-solid fa-pen" aria-hidden="true"></i> Edit';
 
         const shareElement = document.createElement("button");
         shareElement.classList.add("share-lesson");
-        shareElement.textContent = "Share on WhatsApp";
+        shareElement.innerHTML = '<i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Share';
 
         const pdfElement = document.createElement("button");
         pdfElement.classList.add("pdf-lesson");
-        pdfElement.textContent = "Download PDF";
+       pdfElement.innerHTML = '<i class="fa-solid fa-file-pdf" aria-hidden="true"></i> PDF';
 
         // View or hide lesson details
         viewElement.addEventListener("click", function () {
@@ -416,8 +416,9 @@ function renderLessons() {
                     shouldShow ? "block" : "none";
             });
 
-            viewElement.textContent =
-                shouldShow ? "Hide Lesson" : "View Lesson";
+           viewElement.innerHTML = shouldShow
+            ? '<i class="fa-solid fa-eye-slash" aria-hidden="true"></i> Hide'
+            : '<i class="fa-solid fa-eye" aria-hidden="true"></i> View';
         });
 
         // Delete lesson
