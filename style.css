@@ -530,7 +530,10 @@ footer .tagline {
     color: var(--white);
     font-family: Arial, sans-serif;
     font-size: 15px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    max-width: 100%;
+    overflow-wrap: break-word;
 }
 
 .hero .vision {
@@ -627,4 +630,14 @@ footer .tagline {
     .hero #typing-motto {
         font-size: 11px;
     }
+}
+
+.hero #typing-motto {
+    display: block;
+    width: 100%;
+    max-width: 750px;
+    min-height: 3.2em;
+    margin: 20px auto;
+    line-height: 1.6;
+    text-align: center;
 }
