@@ -72,15 +72,15 @@ function downloadLessonPDF(lessonData) {
     const contentWidth = pageWidth - margin * 2;
     const bottomMargin = 20;
 
-    const navy = [6, 20, 43];
-    const gold = [230, 184, 68];
+    const black = [8, 8, 8];
+    const gold = [155, 129, 75];
     const white = [255, 255, 255];
-    const darkText = [45, 52, 65];
+    const darkText = [41, 41, 41];
 
     let y = 55;
 
     function addMainHeader() {
-        doc.setFillColor(...navy);
+        doc.setFillColor(...black);
         doc.rect(0, 0, pageWidth, 42, "F");
 
         doc.setTextColor(...gold);
@@ -102,7 +102,7 @@ function downloadLessonPDF(lessonData) {
     }
 
     function addPageHeader() {
-        doc.setFillColor(...navy);
+        doc.setFillColor(...black);
         doc.rect(0, 0, pageWidth, 15, "F");
 
         doc.setTextColor(...gold);
@@ -120,7 +120,7 @@ function downloadLessonPDF(lessonData) {
     addMainHeader();
 
     // Lesson title
-    doc.setTextColor(...navy);
+    doc.setTextColor(...black);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(16);
 
@@ -169,7 +169,7 @@ function downloadLessonPDF(lessonData) {
         newPage();
     }
 
-    doc.setFillColor(248, 249, 252);
+   doc.setFillColor(...white);
     doc.roundedRect(
         margin,
         y,
@@ -182,7 +182,7 @@ function downloadLessonPDF(lessonData) {
 
     doc.setFontSize(10);
     doc.setFont("helvetica", "bold");
-    doc.setTextColor(...navy);
+   doc.setTextColor(...gold);
 
     doc.text("Age group:", labelX, y + infoPadding + 1);
 
@@ -259,7 +259,7 @@ function downloadLessonPDF(lessonData) {
                 "F"
             );
 
-            doc.setTextColor(...navy);
+            doc.setTextColor(...black);
             doc.setFont("helvetica", "bold");
             doc.setFontSize(11);
             doc.text(headingLines, margin + 5, y);
